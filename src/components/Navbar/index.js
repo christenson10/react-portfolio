@@ -1,4 +1,5 @@
 import React from "react";
+import { capitalizeFirstLetter } from "../../utils/helpers";
 
 function Navbar() {
   const categories = [
@@ -16,17 +17,17 @@ function Navbar() {
   ];
 
   function categorySelected(name) {
-    console.log(`${name} clicked`)
+    console.log(`${name} clicked`);
   }
 
   return (
-    <header>
+    <header className="flex-row">
       <h2>
         <a href="/">
           <span role="img" aria-label="camera">
             {" "}
             📸
-          </span>
+          </span>{" "}
           Alex Christenson
         </a>
       </h2>
@@ -39,12 +40,9 @@ function Navbar() {
             <span>Contact</span>
           </li>
           {categories.map((category) => (
-            <li 
-              className="mx-1" 
-              key={category.name}
-            >
+            <li className="mx-1" key={category.name}>
               <span onClick={() => categorySelected(category.name)}>
-                {category.name}
+                {capitalizeFirstLetter (category.name)}
               </span>
             </li>
           ))}
